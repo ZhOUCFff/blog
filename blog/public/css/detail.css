@@ -1,6 +1,6 @@
-pre {
+/* pre {
   display: block;
-  background-color: #f3f3f3;
+  background-color: #283646 !important;
   padding: 0.5rem !important;
   overflow-y: auto;
   font-weight: 300;
@@ -8,9 +8,6 @@ pre {
   border-radius: 0.3rem;
 }
 
-pre {
-  background-color: #283646 !important;
-}
 
 pre>code {
   border: 0px !important;
@@ -33,6 +30,12 @@ code {
 iframe {
   height: 34rem;
 }
+
+blockquote {
+  border-left: 4px solid #9ccbfa;
+  padding: 15px 10px 1px 20px;
+  background-color: #f8f8f8;
+} */
 
 .detail-title {
   font-size: 24px;

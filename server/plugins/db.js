@@ -1,11 +1,12 @@
 module.exports = app => {
   const mysql = require('mysql')
   const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '47.105.164.155',
     port: 3306,
     user: 'root',
-    password: '19970601',
+    password: 'root',
     database: 'blog',
+    useConnectionPooling: true,
   })
   connection.connect(err => {
     if (err) throw err

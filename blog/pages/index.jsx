@@ -3,9 +3,6 @@ import Link from 'next/link'
 
 import Head from 'next/head'
 
-// 引入样式文件
-import '../public/css/index.css'
-
 import color from '../utils/color'
 
 // 引入自定义组件
@@ -95,7 +92,7 @@ const Home = props => {
         </div>
       </BackTop>
       {/* 公共头部 */}
-      <Header selectedKeys={['index']} selectTitle={'文章类型'} />
+      <Header selectedKeys={['index']} selectTitle={'文章分类'} />
       {/* 内容 */}
       <Row className='main' type='flex' justify='center'>
         <Col xs={24} sm={24} md={16} lg={15} xl={14} className='main-left'>

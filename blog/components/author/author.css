@@ -2,9 +2,12 @@
   width: 100%;
   margin-bottom: 10px;
   background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
   text-align: center;
 }
 
 .author-introduction {
   margin: 16px 0;
+  color: #1890ff;
 }

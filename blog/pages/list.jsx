@@ -3,9 +3,6 @@ import Link from 'next/link'
 
 import Head from 'next/head'
 
-// 引入样式文件
-import '../public/css/index.css'
-
 import color from '../utils/color'
 // 引入工具函数
 import urlPaser from '../utils/url-parser'

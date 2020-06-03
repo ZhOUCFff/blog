@@ -6,7 +6,6 @@ import moment from 'moment'
 
 import color from '../utils/color'
 
-import '../public/css/detail.css'
 // 引入工具函数
 import urlPaser from '../utils/url-parser'
 
@@ -51,7 +50,7 @@ const Detail = props => {
     const renderer = new marked.Renderer()
     renderer.heading = function (text, level, raw) {
       const anchor = tocify.add(text, level)
-      return `<a id=${anchor} href='#${anchor}' class='anchor-fix'>
+      return `<a id=${anchor} class='anchor-fix'>
         <h${level}>${text}</h${level}>
       </a>`
     }
@@ -110,7 +109,7 @@ const Detail = props => {
         </div>
       </BackTop>
       {/* 公共头部 */}
-      <Header selectTitle={'文章类型'} />
+      <Header selectTitle={'文章分类'} />
       {/* 内容 */}
       <Row className='main' type='flex' justify='center'>
         <Col xs={24} sm={24} md={16} lg={15} xl={14} className='main-left'>

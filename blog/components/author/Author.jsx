@@ -7,7 +7,7 @@ export default () => {
   return (
     <div className='author'>
       <div style={{ padding: '20px 0 0' }}>
-        <Avatar size={100} />
+        <Avatar size={100} src='/img/avatar/avatar.jpg' />
         <p className='author-introduction'>前端萌新</p>
       </div>
       <Divider>社交账号</Divider>

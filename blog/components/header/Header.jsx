@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
+import Link from 'next/link'
 
 // 引入样式文件
 import './header.css'
@@ -39,7 +40,11 @@ const Header = props => {
     <div className='header'>
       <Row type='flex' justify='center'>
         <Col xs={24} sm={24} md={10} lg={15} xl={12}>
-          <span className='header-logo'>Blog</span>
+          <Link href='/index'>
+            <a>
+              <span className='header-logo'>Blog</span>
+            </a>
+          </Link>
           <span className='header-text'>分享前端知识</span>
         </Col>
         <Col xs={0} sm={0} md={14} lg={8} xl={6}>
