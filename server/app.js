@@ -31,6 +31,6 @@ app.use(async (err, req, res, next) => {
   })
 })
 
-app.listen(8989, () => {
-  console.log('http://localhost:8989')
+app.listen(3006, () => {
+  console.log('http://localhost:3006')
 })
