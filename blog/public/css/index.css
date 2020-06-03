@@ -1,0 +1,21 @@
+.list-item-title {
+  font-size: 22px;
+}
+
+.list-item-info {
+  margin: 6px 0 10px;
+  color: #ccc;
+}
+
+.list-item-info>span {
+  margin-right: 10px;
+}
+
+.list-item-info>span span {
+  margin-right: 1px;
+}
+
+.list-item-content {
+  font-size: 16px;
+  color: #999;
+}

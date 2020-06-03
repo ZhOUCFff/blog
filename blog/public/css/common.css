@@ -1,0 +1,30 @@
+body {
+  background-color: #f6f6f6;
+}
+
+.main {
+  margin-top: 60px;
+}
+
+.main-left, .main-right {
+  border-radius: 5px;
+}
+
+.main-left {
+  padding: 10px 15px;
+  background-color: #fff;
+}
+
+.main-right {
+  padding-left: 10px;
+}
+
+.back-to-top {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+}
