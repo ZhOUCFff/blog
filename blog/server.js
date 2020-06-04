@@ -14,7 +14,7 @@ app.prepare().then(() => {
   server.get('*', (req, res) => {
     return app.getRequestHandler()(req, res)
   })
-  server.listen(3005, err => {
-    console.log('http://localhost:3005')
+  server.listen(3004, err => {
+    console.log('http://localhost:3004')
   })
 })

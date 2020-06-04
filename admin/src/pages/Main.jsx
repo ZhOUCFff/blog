@@ -27,8 +27,11 @@ const Main = props => {
   const [selectedKey, setSelectedKey] = useState('')
 
   useEffect(() => {
-    setSelectedKey(props.location.pathname.split('/')[2])
     if (!sessionStorage.getItem('token')) props.history.push('/login')
+  }, [])
+
+  useEffect(() => {
+    setSelectedKey(props.location.pathname.split('/')[2])
     setCurrentPath(props.location.pathname)
   }, [props.location.pathname])
 

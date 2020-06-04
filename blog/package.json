@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "_start": "cross-env NODE_ENV=production node server.js"
+    "my_dev": "cross-env NODE_ENV=development node server.js",
+    "my_start": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
