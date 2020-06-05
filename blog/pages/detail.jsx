@@ -28,22 +28,17 @@ import 'highlight.js/styles/monokai-sublime.css'
 import Tocify from '../components/tocify/Tocify.tsx'
 
 // 网络请求
-import { getArticleById, getArticleTypes } from '../request/request'
+import { getArticleById } from '../request/request'
 
 const Detail = props => {
-  const [typeList, setTypeList] = useState([])
+  const [isLoding, setIsLoding] = useState(true)
   const [articleDetail, setArticleDetail] = useState({})
   const [articleContentHTML, setArticleContentHTML] = useState()
   const [articleNav, setArticleNav] = useState()
-  const [isLoding, setIsLoding] = useState(true)
-
-  useEffect(() => {
-    getTypeList()
-  }, [])
 
   useEffect(() => {
     getArticleDetail()
-  }, [typeList])
+  }, [])
 
   useEffect(() => {
     const tocify = new Tocify()
@@ -75,24 +70,12 @@ const Detail = props => {
     tocify && setArticleNav(tocify.render())
   }, [articleDetail])
 
-  // 获取分类列表
-  const getTypeList = async () => {
-    const res = await getArticleTypes()
-    if (!res) return
-    setTypeList(res)
-  }
-
   const getArticleDetail = async () => {
     const { id } = urlPaser(props.router.asPath)
     const res = await getArticleById(id)
     if (!res) return
-    const data = res[0]
-    data.time = moment(data.time).format('YYYY-MM-DD')
-    data.type = typeList
-      .filter(type => data.type.split(',').map(Number).includes(type.id))
-      .map(type => type.typeName)
-    setArticleDetail(data)
     setIsLoding(false)
+    setArticleDetail(res[0])
   }
 
   return (
@@ -113,14 +96,14 @@ const Detail = props => {
       {/* 内容 */}
       <Row className='main' type='flex' justify='center'>
         <Col xs={24} sm={24} md={16} lg={15} xl={14} className='main-left'>
-          <Spin spinning={isLoding}>
+          <Spin spinning={isLoding} tip='loading...'>
             {/* 标题 */}
             <div className='detail-title'>{articleDetail.title}</div>
             {/* 信息 */}
             <div className='detail-info'>
               <span>
                 <CalendarOutlined />
-                {articleDetail.time}
+                {moment(articleDetail.time).format('YYYY-MM-DD')}
               </span>
               <span>
                 <FireOutlined />
@@ -130,7 +113,7 @@ const Detail = props => {
                 {articleDetail.type &&
                   articleDetail.type.map((item, i) => (
                     <Tag color={color[i]} key={i}>
-                      {item}
+                      {item.typeName}
                     </Tag>
                   ))}
               </span>

@@ -1,7 +1,20 @@
 module.exports = (app, db) => {
   const router = require('express').Router()
   const assert = require('http-assert')
+  const moment = require('moment')
   app.use('/blog/web', router)
+
+  // 数据处理函数
+  const handleArticleList = (data = [], typeList = []) => {
+    return data.map(item => {
+      item.key = item.id
+      item.time = moment(item.time).format('YYYY-MM-DD HH:mm:ss')
+      item.type = typeList
+        .filter(type => item.type.split(',').map(Number).includes(type.id))
+        .map(type => type)
+      return item
+    })
+  }
 
   // 获取文章列表
   router.get('/articles', async (req, res) => {
@@ -16,8 +29,9 @@ module.exports = (app, db) => {
       'FROM article'
 
     try {
+      const typeList = await db.query('SELECT * FROM article_type')
       const result = await db.query(sql)
-      res.send(result)
+      res.send(handleArticleList(result, typeList))
     } catch (error) {
       assert(!error, 500, error)
     }
@@ -43,19 +57,9 @@ module.exports = (app, db) => {
 
     // 再查询文章
     try {
+      const typeList = await db.query('SELECT * FROM article_type')
       const result = await db.query(sql)
-      res.send(result)
-    } catch (error) {
-      assert(!error, 500, error)
-    }
-  })
-
-  // 获取所有分类
-  router.get('/article_type', async (req, res) => {
-    const sql = 'SELECT * FROM article_type'
-    try {
-      const result = await db.query(sql)
-      res.send(result)
+      res.send(handleArticleList(result, typeList))
     } catch (error) {
       assert(!error, 500, error)
     }
@@ -73,6 +77,18 @@ module.exports = (app, db) => {
       'article.content as content ' +
       'FROM article ' +
       `WHERE find_in_set(${req.params.type}, type)`
+    try {
+      const typeList = await db.query('SELECT * FROM article_type')
+      const result = await db.query(sql)
+      res.send(handleArticleList(result, typeList))
+    } catch (error) {
+      assert(!error, 500, error)
+    }
+  })
+
+  // 获取所有分类
+  router.get('/article_type', async (req, res) => {
+    const sql = 'SELECT * FROM article_type'
     try {
       const result = await db.query(sql)
       res.send(result)
