@@ -36,6 +36,12 @@ module.exports = (app, db) => {
       'FROM article ' +
       `WHERE article.id = ${req.params.id}`
 
+    // 先更新文章访问量
+    await db.query(
+      `UPDATE article SET visits = visits + 1 WHERE id = ${req.params.id}`
+    )
+
+    // 再查询文章
     try {
       const result = await db.query(sql)
       res.send(result)

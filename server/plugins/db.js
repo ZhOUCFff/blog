@@ -9,7 +9,6 @@ module.exports = app => {
     useConnectionPooling: true,
   })
   connection.connect(err => {
-    if (err) throw err
     console.log('数据库连接成功')
   })
 
