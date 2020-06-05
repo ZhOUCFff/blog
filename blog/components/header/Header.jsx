@@ -42,7 +42,7 @@ const Header = props => {
         <Col xs={14} sm={16} md={10} lg={15} xl={12}>
           <Link href='/index'>
             <a>
-              <span className='header-logo'>B log</span>
+              <span className='header-logo'>Blog</span>
             </a>
           </Link>
           <span className='header-text'>by ZhOUCFff</span>

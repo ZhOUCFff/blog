@@ -37,7 +37,7 @@ body {
 pre {
   display: block;
   /* background-color: #f3f3f3; */
-  background-color: #283646 !important;
+  background-color: #282c34 !important;
   padding: 0.5rem !important;
   overflow-y: auto;
   font-weight: 300;
@@ -47,7 +47,7 @@ pre {
 
 pre>code {
   border: 0px !important;
-  background-color: #283646 !important;
+  background-color: #282c34 !important;
   color: #fff;
 }
 
