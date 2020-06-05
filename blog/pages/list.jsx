@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 
 import Head from 'next/head'
 
@@ -48,9 +49,9 @@ const MyList = props => {
   })
 
   useEffect(() => {
-    getCurrentType(urlPaser(props.url.asPath).typeId)
-    getArticleList(urlPaser(props.url.asPath).typeId)
-  }, [props.url.asPath])
+    getCurrentType(urlPaser(props.router.asPath).typeId)
+    getArticleList(urlPaser(props.router.asPath).typeId)
+  }, [props.router.asPath])
 
   // 获取文章列表数据
   const getArticleList = async typeId => {
@@ -115,11 +116,12 @@ const MyList = props => {
                       <FireOutlined style={{ color: '#ff8a80' }} />
                       {item.visits}
                     </span>
-                    {item.type.map((type, i) => (
-                      <Tag key={i} color={color[i]}>
-                        {type.typeName}
-                      </Tag>
-                    ))}
+                    {item.type &&
+                      item.type.map((type, i) => (
+                        <Tag key={i} color={color[i]}>
+                          {type.typeName}
+                        </Tag>
+                      ))}
                   </div>
                   <div
                     className='list-item-content'
@@ -148,4 +150,4 @@ const MyList = props => {
   )
 }
 
-export default MyList
+export default withRouter(MyList)

@@ -13,7 +13,7 @@ import urlPaser from '../utils/url-parser'
 import Header from '../components/header/Header'
 import Author from '../components/author/Author'
 // 引入antd组件
-import { Row, Col, Affix, Tag, Spin, BackTop } from 'antd'
+import { Row, Col, Affix, Tag, Spin, Empty, BackTop } from 'antd'
 import {
   CalendarOutlined,
   FireOutlined,
@@ -97,6 +97,7 @@ const Detail = props => {
       <Row className='main' type='flex' justify='center'>
         <Col xs={24} sm={24} md={16} lg={15} xl={14} className='main-left'>
           <Spin spinning={isLoding} tip='loading...'>
+            {isLoding ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} /> : null}
             {/* 标题 */}
             <div className='detail-title'>{articleDetail.title}</div>
             {/* 信息 */}

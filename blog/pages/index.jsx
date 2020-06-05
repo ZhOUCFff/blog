@@ -99,11 +99,12 @@ const Home = props => {
                       <FireOutlined style={{ color: '#ff8a80' }} />
                       {item.visits}
                     </span>
-                    {item.type.map((type, i) => (
-                      <Tag key={i} color={color[i]}>
-                        {type.typeName}
-                      </Tag>
-                    ))}
+                    {item.type &&
+                      item.type.map((type, i) => (
+                        <Tag key={i} color={color[i]}>
+                          {type.typeName}
+                        </Tag>
+                      ))}
                   </div>
                   <div
                     className='list-item-content'

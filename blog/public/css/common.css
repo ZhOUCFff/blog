@@ -13,6 +13,7 @@ body {
 }
 
 .main-left {
+  min-height: 92vh;
   padding: 10px 15px;
   background-color: #fff;
 }
@@ -52,14 +53,14 @@ pre>code {
 
 code {
   display: inline-block;
-  background-color: #f3f3f3;
-  border: 1px solid #fdb9cc;
+  padding: 0 5px;
+  margin: 0 3px;
+  background-color: #f5f5f5;
   border-radius: 3px;
+  white-space: pre-wrap;
   font-size: 12px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #4f4f4f;
-  margin: 0px 3px;
+  font-weight: 900;
+  color: #bd4147;
 }
 
 iframe {
