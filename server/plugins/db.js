@@ -23,6 +23,13 @@ module.exports = app => {
     }
   })
 
+  let pingInterval = null
+  pingInterval = setInterval(() => {
+    connection.ping(err => {
+      if (err) throw new Error(err)
+    })
+  }, 3600000)
+
   return {
     query(sql, params = null) {
       return new Promise((resolve, reject) => {
