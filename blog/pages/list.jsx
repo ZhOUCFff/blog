@@ -86,7 +86,7 @@ const MyList = props => {
       {/* 公共头部 */}
       <Header
         selectedKeys={[currentType.id + '']}
-        selectTitle={currentType.typeName ? currentType.typeName : '文章分类'}
+        selectTitle={currentType.typeName ? currentType.typeName : '分类'}
       />
       {/* 内容 */}
       <Row className='main' type='flex' justify='center'>

@@ -92,7 +92,7 @@ const Detail = props => {
         </div>
       </BackTop>
       {/* 公共头部 */}
-      <Header selectTitle={'文章分类'} />
+      <Header selectTitle={'分类'} />
       {/* 内容 */}
       <Row className='main' type='flex' justify='center'>
         <Col xs={24} sm={24} md={16} lg={15} xl={14} className='main-left'>

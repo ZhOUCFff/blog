@@ -8,8 +8,19 @@ module.exports = app => {
     database: 'blog',
     useConnectionPooling: true,
   })
+
   connection.connect(err => {
+    if (err) throw new Error(err)
     console.log('数据库连接成功')
+  })
+
+  connection.on('error', err => {
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+      connection.connect(err => {
+        if (err) throw new Error(err)
+        console.log('数据库重连成功')
+      })
+    }
   })
 
   return {

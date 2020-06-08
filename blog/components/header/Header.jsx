@@ -39,7 +39,7 @@ const Header = props => {
   return (
     <div className='header'>
       <Row type='flex' justify='center'>
-        <Col xs={14} sm={16} md={10} lg={15} xl={12}>
+        <Col xs={12} sm={16} md={10} lg={15} xl={12}>
           <Link href='/index'>
             <a>
               <span className='header-logo'>Blog</span>
@@ -47,7 +47,7 @@ const Header = props => {
           </Link>
           <span className='header-text'>by ZhOUCFff</span>
         </Col>
-        <Col xs={10} sm={8} md={14} lg={8} xl={6}>
+        <Col xs={12} sm={8} md={14} lg={8} xl={6}>
           <Menu
             mode='horizontal'
             forceSubMenuRender
