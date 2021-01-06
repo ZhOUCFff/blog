@@ -14,7 +14,7 @@
     "@ant-design/icons": "^4.1.0",
     "@zeit/next-css": "^1.0.1",
     "antd": "^4.2.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "highlight.js": "^10.0.3",
